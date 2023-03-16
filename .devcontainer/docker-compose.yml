@@ -1,0 +1,17 @@
+version: '3.9'
+
+networks:
+  kinova_control:
+    driver: bridge
+
+services:
+  kinova:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/workspace
+    networks:
+      - kinova_control
+    stdin_open: true
+    tty: true
