@@ -7,11 +7,22 @@ networks:
 services:
   kinova:
     build:
-      context: .
+      context: ./robot
       dockerfile: Dockerfile
     volumes:
       - ../:/workspace
     networks:
       - kinova_control
     stdin_open: true
+    tty: true
+    depends_on:
+      - datalogger_server
+    environment:
+      - ZMQ_SERVER_ADDRESS=tcp://datalogger_server:5555
+  datalogger_server:
+    build:
+      context: ./datalogger_server
+      dockerfile: Dockerfile
+    environment:
+      - ZMQ_CLIENT_ADDRESS=tcp://kinova:5555
     tty: true

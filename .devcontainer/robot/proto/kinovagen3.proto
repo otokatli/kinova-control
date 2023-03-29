@@ -1,0 +1,50 @@
+syntax = "proto2";
+
+package kinovadatalogging;
+
+message JointPos {
+    required double q1 = 1; 
+    required double q2 = 2; 
+    required double q3 = 3; 
+    required double q4 = 4; 
+    required double q5 = 5; 
+    required double q6 = 6; 
+    required double q7 = 7; 
+}
+
+message JointVel {
+    required double qp1 = 1; 
+    required double qp2 = 2; 
+    required double qp3 = 3; 
+    required double qp4 = 4; 
+    required double qp5 = 5; 
+    required double qp6 = 6; 
+    required double qp7 = 7; 
+}
+
+message JointAcc {
+    required double qpp1 = 1; 
+    required double qpp2 = 2; 
+    required double qpp3 = 3; 
+    required double qpp4 = 4; 
+    required double qpp5 = 5; 
+    required double qpp6 = 6; 
+    required double qpp7 = 7; 
+}
+
+message JointTorque {
+    required double T1 = 1; 
+    required double T2 = 2; 
+    required double T3 = 3; 
+    required double T4 = 4; 
+    required double T5 = 5; 
+    required double T6 = 6; 
+    required double T7 = 7; 
+}
+
+message KinovaGen3 {
+    required JointPos q = 1;
+    required JointVel qp = 2;
+    required JointAcc qpp = 3;
+    required JointTorque T = 4;
+}
