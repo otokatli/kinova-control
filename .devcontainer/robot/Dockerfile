@@ -23,11 +23,12 @@ RUN cmake .. -DUSE_CONAN=OFF -DCMAKE_BUILD_TYPE=release && make
 RUN python3 -m pip install /external/kortex_api-2.5.0.post6-py3-none-any.whl
 
 # Protobuf files
-RUN mkdir -p /protobuf/proto && mkdir -p /protobuf/python
+RUN mkdir -p /protobuf/proto && mkdir -p /protobuf/python && mkdir -p /protobuf/cpp
 COPY /proto/kinovagen3.proto /protobuf/proto/
 
-# Compile the proto file into python
+# Compile the proto file into python and c++
 RUN protoc -I=/protobuf/proto --python_out=/protobuf/python /protobuf/proto/kinovagen3.proto
+RUN protoc -I=/protobuf/proto --cpp_out=/protobuf/cpp /protobuf/proto/kinovagen3.proto
 
 # Workspace
 RUN mkdir /workspace
