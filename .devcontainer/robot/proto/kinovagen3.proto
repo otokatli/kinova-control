@@ -35,6 +35,5 @@ message JointTorque {
 message KinovaGen3 {
     required JointPos q = 1;
     required JointVel qp = 2;
-    required JointAcc qpp = 3;
     required JointTorque T = 4;
 }
