@@ -22,16 +22,6 @@ message JointVel {
     required double qp7 = 7; 
 }
 
-message JointAcc {
-    required double qpp1 = 1; 
-    required double qpp2 = 2; 
-    required double qpp3 = 3; 
-    required double qpp4 = 4; 
-    required double qpp5 = 5; 
-    required double qpp6 = 6; 
-    required double qpp7 = 7; 
-}
-
 message JointTorque {
     required double T1 = 1; 
     required double T2 = 2; 
